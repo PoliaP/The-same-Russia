@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Партнёры{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/partner.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block header_logo %}logo_blue.png{% endblock %}
+{% block burger_icon %}menu_blue.png{% endblock %}
+
+{% block nav_title %}
+<h1>Партнёры</h1>
+{% endblock %}
+
+{% block content %}
+<section class="partner">
+    {% for partner in partners %}
+    <a href="{{ partner.url|default:'#' }}" class="partner-content" target="_blank" style="text-decoration: none; color: inherit;">
+        <img src="{{ partner.logo.url }}" alt="{{ partner.name }}">
+        <p>{{ partner.name }}</p>
+    </a>
+    {% empty %}
+    <p>Партнеров пока нет.</p>
+    {% endfor %}
+</section>
+{% endblock %}
