@@ -210,3 +210,10 @@ def history_detail(request, pk):
 
 def contacts(request):
     return render(request, 'core/contacts.html')
+
+main = home
+news_view = news_list
+team_view = team_list
+history_lines_view = history_list
+partner_view = partner_list
+contacts_view = contacts
